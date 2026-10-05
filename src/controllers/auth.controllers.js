@@ -18,11 +18,11 @@ async function registerUser(req, res) {
       process.env.JWT_SECRET,
     );
 
+    res.cookie("token", token);
     res.status(201).json({
       statusCode: 201,
       message: "User Register Successfully",
       user,
-      token,
     });
   } catch (error) {
     console.error("error occur during registerUser: ", error);
